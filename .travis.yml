@@ -6,4 +6,4 @@ before_install:
     - docker build -t sirasaoa/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run -e CI=true sirasaoa/docker-react npm run test
+    - docker run -e CI=true sirasaoa/docker-react npm run test -- --coverage
