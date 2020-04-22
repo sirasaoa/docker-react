@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 #Run the command on container start
-CMD ["npm","run","build"]
+RUN npm run build
 
 
 #RUN PHASE
