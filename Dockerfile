@@ -1,12 +1,12 @@
 #BUILD PHASE
 #Download the base image 
-FROM node:alpine
+FROM node:alpine as builder
 
 #Set up a working directory
 WORKDIR '/app'
 
 #Install required dependencies
-COPY package.json ./
+COPY package.json .
 RUN npm install
 
 COPY . .
@@ -23,4 +23,4 @@ FROM nginx
 EXPOSE 80
 
 #Copy output from build phase
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
