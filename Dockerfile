@@ -1,6 +1,6 @@
 #BUILD PHASE
 #Download the base image 
-FROM node:alpine as builder
+FROM node:alpine
 
 #Set up a working directory
 WORKDIR '/app'
@@ -23,4 +23,4 @@ FROM nginx
 EXPOSE 80
 
 #Copy output from build phase
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
