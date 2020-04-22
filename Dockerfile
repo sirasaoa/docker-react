@@ -19,5 +19,8 @@ CMD ["npm","run","build"]
 #Download the base image
 FROM nginx
 
+#Expose container port
+EXPOSE 80
+
 #Copy output from build phase
 COPY --from=builder /app/build /usr/share/nginx/html
